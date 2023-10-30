@@ -1,0 +1,51 @@
+{
+  "pages": {
+    "/_not-found": [
+      "static/chunks/webpack-221ab5c01897f7e0.js",
+      "static/chunks/fd9d1056-2dfa6618ef14b943.js",
+      "static/chunks/472-be21349098b5085d.js",
+      "static/chunks/main-app-eead189989ddc880.js",
+      "static/chunks/app/_not-found-fad83af343752374.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-221ab5c01897f7e0.js",
+      "static/chunks/fd9d1056-2dfa6618ef14b943.js",
+      "static/chunks/472-be21349098b5085d.js",
+      "static/chunks/main-app-eead189989ddc880.js",
+      "static/chunks/236-99c49b679eab5069.js",
+      "static/chunks/416-f038b1258acbc2d7.js",
+      "static/chunks/app/layout-bbd66b0bb8efa28d.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack-221ab5c01897f7e0.js",
+      "static/chunks/fd9d1056-2dfa6618ef14b943.js",
+      "static/chunks/472-be21349098b5085d.js",
+      "static/chunks/main-app-eead189989ddc880.js",
+      "static/chunks/834e97ba-350eea0424cd31ff.js",
+      "static/chunks/02af1b24-719ec0d453705307.js",
+      "static/chunks/9e9fb930-825f5791effb5e79.js",
+      "static/chunks/164f4fb6-6c3648e5dd24d69a.js",
+      "static/chunks/236-99c49b679eab5069.js",
+      "static/chunks/360-1197bbc23a1678f6.js",
+      "static/chunks/app/dashboard/page-e313b4f951cb2afe.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack-221ab5c01897f7e0.js",
+      "static/chunks/fd9d1056-2dfa6618ef14b943.js",
+      "static/chunks/472-be21349098b5085d.js",
+      "static/chunks/main-app-eead189989ddc880.js",
+      "static/chunks/236-99c49b679eab5069.js",
+      "static/chunks/416-f038b1258acbc2d7.js",
+      "static/css/431944509084d071.css",
+      "static/chunks/app/login/page-5c0e6cba49644744.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-221ab5c01897f7e0.js",
+      "static/chunks/fd9d1056-2dfa6618ef14b943.js",
+      "static/chunks/472-be21349098b5085d.js",
+      "static/chunks/main-app-eead189989ddc880.js",
+      "static/css/4872089623f5e9b5.css",
+      "static/chunks/app/page-fcfa7c80bc9b0036.js"
+    ]
+  }
+}
