@@ -3,6 +3,7 @@
 import React from "react";
 import { AuthProvider } from "./components/auth/authContext";
 import MainLayout from "./components/MainLayout";
+import FarmersPageProvider from "./components/context/FarmersPageProvider";
 
 export default function RootLayout({
   children,
@@ -11,13 +12,16 @@ export default function RootLayout({
 }) {
   return (
     <React.Fragment>
+      <FarmersPageProvider>
       <AuthProvider>
+        
         <html lang="en">
           <body>
             <MainLayout>{children}</MainLayout>
           </body>
         </html>
       </AuthProvider>
+      </FarmersPageProvider>
     </React.Fragment>
   );
 }

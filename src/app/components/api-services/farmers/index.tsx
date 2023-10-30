@@ -24,3 +24,15 @@ export const get_farmers = async ({
     throw new CustomError(error);
   }
 }
+export const get_all_farmers = async () =>{
+  try {
+    const response = await axios.get(
+      `/farmers/list`, {
+        headers: authHeader()
+      }
+    );
+    return response.data;
+  } catch (error: any) {
+    throw new CustomError(error);
+  }
+}
