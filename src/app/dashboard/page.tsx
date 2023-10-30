@@ -18,8 +18,9 @@ import { useFarmersContext } from "../components/context/FarmersPageProvider";
 import ExportExcel from "../units/excelExport";
 function Index() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [farmerData, setFarmerData] = useState<FarmerType>();
+  const [farmerData, setFarmerData] = useState<FarmerType[]>();
   const { farmers, setFarmers } = useFarmersContext();
+
   const farmers_columns: TableColumn<FarmerType>[] = [
     {
       title: "Farmer's Name",
@@ -27,47 +28,47 @@ function Index() {
     },
     {
       title: "Phone Number",
-      cell: (row) => <p>{row.phoneNumber}</p>,
+      cell: (row) => <div>{row.phoneNumber}</div>,
     },
     {
       title: "District",
-      cell: (row) => <p>{row.district}</p>,
+      cell: (row) => <div>{row.district}</div>,
     },
     {
       title: "Sector",
-      cell: (row) => <p>{row.sector}</p>,
+      cell: (row) => <div>{row.sector}</div>,
     },
     {
       title: "Village",
-      cell: (row) => <p>{row.village}</p>,
+      cell: (row) => <div>{row.village}</div>,
     },
     {
       title: "Fuerte Trees",
-      cell: (row) => <p>{row.jumboTrees}</p>,
+      cell: (row) => <div>{row.jumboTrees}</div>,
     },
     {
       title: "Fuerte Trees Age",
-      cell: (row) => <p>{row.jumboTreesAge}</p>,
+      cell: (row) => <div>{row.jumboTreesAge}</div>,
     },
     {
       title: "Jumbo Trees",
-      cell: (row) => <p>{row.jumboTrees}</p>,
+      cell: (row) => <div>{row.jumboTrees}</div>,
     },
     {
       title: "Jumbo Trees Age",
-      cell: (row) => <p>{row.jumboTreesAge}</p>,
+      cell: (row) => <div>{row.jumboTreesAge}</div>,
     },
     {
       title: "Hass Trees",
-      cell: (row) => <p>{row.jumboTrees}</p>,
+      cell: (row) => <div>{row.jumboTrees}</div>,
     },
     {
       title: "Hass Trees Age",
-      cell: (row) => <p>{row.jumboTreesAge}</p>,
+      cell: (row) => <div>{row.jumboTreesAge}</div>,
     },
     {
       title: "Registration Date",
-      cell: (row) => <p>{row.registrationDate}</p>,
+      cell: (row) => <div>{row.registrationDate}</div>,
     },
     {
       title: "Farm Size",
@@ -75,16 +76,16 @@ function Index() {
     },
     {
       title: "Farmer Code",
-      cell: (row) => <p>{row.farmerCode}</p>,
+      cell: (row) => <div>{row.farmerCode}</div>,
     },
   ];
   const getFarmers = async (options: PaginationOptionType) => {
     try {
       setIsLoading(true);
-      const farmers: any = await get_farmers({
+      const foundFarmers = await get_farmers({
         ...options,
       });
-      setFarmers(farmers.data);
+      setFarmers(foundFarmers.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -125,11 +126,12 @@ function Index() {
             </div>
             <DataTable
               columns={farmers_columns}
-              getData={(options = { page: 0, size: 10 }) => {
+              getData={(options = { page: 0, size: 5 }) => {
                 getFarmers(options).catch((error) => {
                   console.error(error);
                 });
               }}
+
               isLoading={isLoading}
               data={farmers?.content ?? []}
               first={farmers?.first ?? true}

@@ -24,7 +24,7 @@ export const get_farmers = async ({
     throw new CustomError(error);
   }
 }
-export const get_all_farmers = async () =>{
+export const get_all_farmers = async ():Promise<GetFarmerType> =>{
   try {
     const response = await axios.get(
       `/farmers/list`, {
@@ -36,3 +36,12 @@ export const get_all_farmers = async () =>{
     throw new CustomError(error);
   }
 }
+export type GetFarmerType = {
+  success: true;
+  message: null;
+  data: {
+    farmers: FarmerType[];
+    totalPages: number;
+    totalElements: number;
+  };
+};
