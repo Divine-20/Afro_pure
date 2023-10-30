@@ -1,5 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable @typescript-eslint/no-empty-function */
+"use client"
 import React, { ReactNode, createContext, useContext, useState } from "react";
 import { PaginationType } from "../types/pagination.type";
 import { FarmerType } from "../types/farmers.type";

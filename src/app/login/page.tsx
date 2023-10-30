@@ -1,18 +1,24 @@
 "use client";
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Image from "next/image";
 import AfroLogo from "../../../public/afropurelogo.png";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthProvider, useAuth } from "../components/auth/authContext";
+import useAuth from "../components/auth/authContext";
 
 function Login() {
-  const authValue = useAuth();
+  const { loginWithEmailAndPassword, loggingIn } = useAuth();
   const [loginInput, setLoginInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [error, setError] = useState("");
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    authValue.loginWithEmailAndPassword(loginInput, passwordInput);
+    try {
+      loginWithEmailAndPassword(loginInput, passwordInput);
+    } catch (error) {
+      setError("Login failed. Please check your credentials.");
+    }
   };
 
   return (
@@ -49,11 +55,12 @@ function Login() {
             </div>
           </div>
           <button
+            disabled={loggingIn}
             id="button"
             type="submit"
             className="py-3 w-full px-2 rounded-md bg-green-700 mt-4 text-white flex justify-center"
           >
-            Log In
+            {loggingIn ? <span>Loading...</span> : <span>Log In</span>}
           </button>
         </form>
       </div>
