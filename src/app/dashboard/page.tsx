@@ -12,7 +12,7 @@ import { DataTable, TableColumn } from "../components/dataTable";
 import { FarmerType } from "../components/types/farmers.type";
 import {
   get_all_farmers,
-  get_farmers, get_stats
+  get_farmers,
 } from "../components/api-services/farmers";
 import { useFarmersContext } from "../components/context/FarmersPageProvider";
 import ExportExcel from "../units/excelExport";
