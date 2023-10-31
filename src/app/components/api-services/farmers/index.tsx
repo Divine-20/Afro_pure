@@ -7,6 +7,7 @@ import {
 } from "../../types/pagination.type";
 import { ResponseType } from "../../types/response.type";
 import authHeader from "../auth-header";
+import { StatsType } from "../../types/stats.type";
 
 export const get_farmers = async ({
   page,
@@ -57,15 +58,15 @@ export type GetFarmerType = {
     totalElements: number;
   };
 };
-
-export type StatsData = {
-  message: "Success",
-  status: "OK",
-  timestamp: "2023-10-30T22:08:57.727872680"
-  data: {
-    farmers: 0,
-    hassTrees: 0,
-    fuerteTrees: 0,
-    jumboTrees: 0
-  };
-};
+export const get_farmers_stats = async ():Promise<StatsType> =>{
+  try {
+    const response = await axios.get(
+      `/farmers/stats`, {
+        headers: authHeader()
+      }
+    );
+    return response.data;
+  } catch (error: any) {
+    throw new CustomError(error);
+  }
+}

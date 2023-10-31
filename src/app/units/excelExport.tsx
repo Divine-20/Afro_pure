@@ -1,7 +1,6 @@
 import * as FileSaver from "file-saver";
 import XLSX from "sheetjs-style";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+
 const ExportExcel = ({
   excelData,
   fileName,
@@ -19,6 +18,6 @@ const ExportExcel = ({
     const data = new Blob([excelBuffer], { type: fileType });
     FileSaver.saveAs(data, fileName + fileExtension);
   };
-  return <button className="bg-green-600 text-center px-4 py-[4px] rounded-md text-white" onClick={(e) => exportToExcel(fileName)}>Excel Export</button>;
+  return <button className="bg-green-700 text-center px-4 py-[4px] rounded-md text-white" onClick={(e) => exportToExcel(fileName)}>Excel Export</button>;
 };
 export default ExportExcel;

@@ -10,6 +10,7 @@ const Button = styled.button`
   background-color: #008000;
   border-radius: 4px;
   border: none;
+  width: 6vw;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -201,18 +202,19 @@ export const DataTable = <Entry extends Model>(
         width: "100%",
         overflowX: "scroll",
         minHeight: "10rem",
-        minWidth: "100%"
+        minWidth: "120%",
+       
       }}
       className=''
     >
-      <table className="w-full my-6 rounded-md  text-sm overflow-hidden overflow-x-scroll scrollable">
+      <table className="w-[100%] my-6 rounded-md  text-sm overflow-hidden">
       <thead className="text-left font-sans font-bold rounded-tl-md rounded-tr-md w-full">
           
-          <tr className='border-b-[1px] border-[#C4C4C425] pb-4'>
+          <tr className='border pb-4 px-3'>
                 {columns
                   .filter((col) => !col.omit)
                   .map((column, key) => (
-                    <th key={key}>{column.title}</th>
+                    <th key={key} className="border border-[#C4C4C425] py-3 pl-4 ">{column.title}</th>
                   ))}
               </tr>
             </thead>
@@ -244,7 +246,7 @@ export const DataTable = <Entry extends Model>(
                   {columns
                     .filter((col) => !col.omit)
                     .map((column, columnKey) => (
-                      <td key={columnKey} className="border-b-[1px] border-solid border-gray-200 py-3 pl-4">
+                      <td key={columnKey} className="border border-[#C4C4C425] py-3 pl-4 pr-2">
                         {column.cell(element, elementKey)}
                       </td>
                     ))}
@@ -256,7 +258,7 @@ export const DataTable = <Entry extends Model>(
       {!isLoading && (
         <div className='table-pagination py-2 min-w-full overflow-auto flex justify-between'>
           <div className='flex items-center justify-between gap-2'>
-            <span className='disabled min-w-20 cursor-pointer rounded-md bg-slate-500 p-2 text-slate-100  duration-100 disabled:cursor-default'>
+            <span className='disabled min-w-20 cursor-pointer rounded-md bg-green-700 p-2 text-slate-100  duration-100 disabled:cursor-default'>
               {data.length
                 ? paginate.pageSize * (pageNumber + 1) - paginate.pageSize + 1
                 : 0}{" "}
@@ -280,7 +282,7 @@ export const DataTable = <Entry extends Model>(
               ) : (
                 <div
                   key={index}
-                  className={`pagination-item ${
+                  className={`pagination-item  ${
                     activePage + 1 === value && "active"
                   }`}
                   onClick={() => {

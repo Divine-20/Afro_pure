@@ -1,7 +1,8 @@
 export interface FruitDetails {
 
     title: string;
-    fruitNumber: Number;
+    fruitNumber?: Number;
+    farmersNumber?: Number;
 
 }
 export const fruitDetails: FruitDetails[] = [
@@ -19,4 +20,8 @@ export const fruitDetails: FruitDetails[] = [
         title: "Hass",
         fruitNumber: 0,
     },
-];
+    {
+        title: "Farmers",
+        farmersNumber: 0,
+    },
+  ];

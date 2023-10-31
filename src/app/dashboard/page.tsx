@@ -16,6 +16,7 @@ import {
 } from "../components/api-services/farmers";
 import { useFarmersContext } from "../components/context/FarmersPageProvider";
 import ExportExcel from "../units/excelExport";
+import { exportPdf } from "../units/pdfExport";
 function Index() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [farmerData, setFarmerData] = useState<FarmerType[]>();
@@ -51,7 +52,7 @@ function Index() {
       cell: (row) => <div>{row.fuerteTreesAge}</div>,
     },
     {
-      title: "Jumbo Trees",
+      title: "Fuerte Trees Age",
       cell: (row) => <div>{row.jumboTrees}</div>,
     },
     {
@@ -115,15 +116,20 @@ function Index() {
             ))}
           </div>
         </div>
-        <div className=" bg-white p-[20px] rounded-md shadow-sm shadow-neutal-300 mt-2">
-          <div className="items-start justify-between">
-            <div className="flex">
+        <div className=" bg-white p-[20px] rounded-md shadow-sm shadow-neutal-300 mt-2 w-full">
+          <div className="items-start justify-between w-full ">
+            <div className="flex justify-between">
               <SectionHead
                 title="Farmer's table"
                 desc="More Details about the Farmers"
               />
+                    
+               <div className="flex w-full justify-end gap-4">
+              <button className="bg-red-700 text-center px-4 py-[4px] rounded-md text-white" onClick={(e) => exportPdf(farmerData,"farmers")}>Pdf Export</button>
               <ExportExcel excelData={farmerData} fileName="farmers" />
+              </div>
             </div>
+            <div className="w-full w-12 scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300 overflow-y-scrollw-full scrollbar scrollbar-thumb-custom overflow-x-scroll">
             <DataTable
               columns={farmers_columns}
               getData={(options = { page: 0, size: 5 }) => {
@@ -140,6 +146,7 @@ function Index() {
               totalElements={0}
               totalPages={farmers?.totalPages ?? 0}
             />
+            </div>
           </div>
         </div>
       </div>
