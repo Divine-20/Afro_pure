@@ -2,6 +2,9 @@ import Instance from 'axios'
 export const axios = Instance.create({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e3252d (fixed stats issue)
     baseURL: "http://197.243.18.48:8088/afropureapp/api/v1"
 })
 =======

@@ -12,7 +12,7 @@ import { DataTable, TableColumn } from "../components/dataTable";
 import { FarmerType } from "../components/types/farmers.type";
 import {
   get_all_farmers,
-  get_farmers,
+  get_farmers, get_stats
 } from "../components/api-services/farmers";
 import { useFarmersContext } from "../components/context/FarmersPageProvider";
 import ExportExcel from "../units/excelExport";
@@ -44,11 +44,11 @@ function Index() {
     },
     {
       title: "Fuerte Trees",
-      cell: (row) => <div>{row.jumboTrees}</div>,
+      cell: (row) => <div>{row.fuerteTrees}</div>,
     },
     {
       title: "Fuerte Trees Age",
-      cell: (row) => <div>{row.jumboTreesAge}</div>,
+      cell: (row) => <div>{row.fuerteTreesAge}</div>,
     },
     {
       title: "Jumbo Trees",
@@ -60,11 +60,11 @@ function Index() {
     },
     {
       title: "Hass Trees",
-      cell: (row) => <div>{row.jumboTrees}</div>,
+      cell: (row) => <div>{row.hassTrees}</div>,
     },
     {
       title: "Hass Trees Age",
-      cell: (row) => <div>{row.jumboTreesAge}</div>,
+      cell: (row) => <div>{row.hassTreesAge}</div>,
     },
     {
       title: "Registration Date",
@@ -100,7 +100,7 @@ function Index() {
       console.error(error);
     }
   };
-  useEffect(() => {getFarmersList()}, []);
+  useEffect(() => { getFarmersList() }, []);
   return (
     <div className="w-full bg-[#00800010] flex">
       <SideBar />

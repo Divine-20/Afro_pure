@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { FruitDetails } from "./dataAssets";
 
-interface FruitRecordsProps extends FruitDetails {}
+interface FruitRecordsProps extends FruitDetails { }
 
 const COLORS = ["#5160B3", "#000000", "#2CA900", "#D29539"];
 import { useFarmersContext } from '../components/context/FarmersPageProvider'
@@ -52,15 +52,15 @@ function FruitRecords(props: FruitRecordsProps) {
     <div className="flex items-center mb-4 p-3 min-w-[250px] gap-4 border cursor-pointer rounded-lg shadow-sm">
       <div className="w-full">
         <p className="text-gray-400">{props.title}</p>
-          <h1
-            className="font-bold text-2xl"
-            style={{ color: COLORS[Math.floor(Math.random() * COLORS.length)] }}
-          >
-          
-          {props.title ===  "Fuerte" ? `${fuerteCount} trees` : props.title === "Fuerte" ? `${fuerteCount} trees` : `${jumboCount} trees`}
-          </h1>
+        <h1
+          className="font-bold text-2xl"
+          style={{ color: COLORS[Math.floor(Math.random() * COLORS.length)] }}
+        >
 
-      </div>  
+          {props.title === "Fuerte" ? `${fuerteCount} trees` : props.title === "Hass" ? `${hassCount} trees` : `${jumboCount} trees`}
+        </h1>
+
+      </div>
     </div>
   );
 }
