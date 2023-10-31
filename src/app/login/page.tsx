@@ -1,5 +1,4 @@
 "use client";
-// import React, { useState } from "react";
 import React, { createContext, useState } from "react";
 import Image from "next/image";
 import AfroLogo from "../../../public/afropurelogo.png";
