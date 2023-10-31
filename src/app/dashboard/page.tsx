@@ -15,7 +15,7 @@ import {
   get_farmers,
 } from "../components/api-services/farmers";
 import { useFarmersContext } from "../components/context/FarmersPageProvider";
-import ExportExcel from "../units/excelPdfExport";
+import ExportExcel from "../units/excelExport";
 function Index() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [farmerData, setFarmerData] = useState<FarmerType>();

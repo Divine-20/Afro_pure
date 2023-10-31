@@ -26,10 +26,12 @@ export const AuthContext = createContext<{
   initialLoading: boolean;
   loggingIn: boolean;
   loginWithEmailAndPassword: (login: string, password: string) => void;
+  logout: () => void;
 }>({
   initialLoading: true,
   loginWithEmailAndPassword: () => {},
   loggingIn: false,
+  logout: () => {},
 });
 
 export const AuthProvider = ({ children }: LoginProps) => {
@@ -90,7 +92,7 @@ export const AuthProvider = ({ children }: LoginProps) => {
     }
   };
 
-  const logout = () => {
+ const logout = () => {
     setUser(null);
     router.push("/login");
   };

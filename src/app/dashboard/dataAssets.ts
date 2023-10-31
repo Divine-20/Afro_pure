@@ -16,7 +16,7 @@ export const fruitDetails: FruitDetails[] = [
         fruitNumber: 0,
     },
     {
-        title: "Hassa",
+        title: "Hass",
         fruitNumber: 0,
     },
   ];
