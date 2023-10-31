@@ -15,7 +15,8 @@ function Login() {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      loginWithEmailAndPassword(loginInput, passwordInput);
+      await loginWithEmailAndPassword(loginInput, passwordInput);
+
     } catch (error) {
       setError("Login failed. Please check your credentials.");
     }
@@ -48,7 +49,7 @@ function Login() {
                 type="password"
                 name="password"
                 placeholder="Password"
-                // value={passwordInput}
+               
                 onChange={(e) => setPasswordInput(e.target.value)}
                 className={`border border-black-300/10 font-regular outline-none w-full py-[14px] px-3 rounded-md`}
               />

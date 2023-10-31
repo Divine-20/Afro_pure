@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FarmerType } from "../../types/farmers.type";
 import { CustomError } from "../../libs/response";
 import { axios } from "../axios";

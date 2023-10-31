@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { isAxiosError } from "axios";
 import { ResponseType } from "../types/response.type";
 
